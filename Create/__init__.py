@@ -33,7 +33,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         # except requests.HTTPError:
         req_body['id'] = create_id()
         # req_body['salt'], req_body['Password'] = hash_password(req_body['Password'])
-        req_body['salt'], req_body['Password'] = req_body['Password']
+
         req_body['actionPoints'] = 0
         response = airtable.insert(req_body)
         records = requests.get(url=all_records_url, headers=adalo_headers)
