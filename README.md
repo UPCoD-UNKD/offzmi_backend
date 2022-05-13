@@ -1,2 +1,2 @@
 # offzmi_backend
-offzmi_test
+offzmi-test
