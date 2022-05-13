@@ -12,6 +12,7 @@ table_name = 'offzmi_table'
 api_key = 'keyayJEttwX4dBeZv'
 
 airtable = Airtable(base_id, table_name, api_key)
+adalo_url = "https://api.adalo.com/v0/apps/b1610ffb-c5ee-4ec5-9a9e-3daae6af8061/collections/t_555b0678dcbf497fa89f55dbdd94fe21/{ElementId}"
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
