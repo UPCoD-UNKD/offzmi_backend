@@ -1,3 +1,5 @@
+azure-functions
+azure-storage
 airtable-python-wrapper==0.15.3
 bcrypt==3.2.2
 certifi==2021.10.8
