@@ -32,6 +32,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         #     airtable.search('Email', req_body['Email'])
         # except requests.HTTPError:
         req_body['id'] = create_id()
+        req_body.pop('Підтвердіть пароль')
+        req_body.pop('Даю згоду на обробку персональних даних')
         # req_body['salt'], req_body['Password'] = hash_password(req_body['Password'])
 
         req_body['actionPoints'] = 0
