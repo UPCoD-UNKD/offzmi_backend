@@ -36,10 +36,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         req_body['actionPoints'] = 0
         response = airtable.insert(req_body)
         records = requests.get(url=all_records_url, headers=adalo_headers)
-        request = requests.put(url=f"{update_url}{len(records.json()['records'])}", headers=adalo_headers, json={
+        request = requests.put(url=f"{update_url}{len(records.json()['records'])-1}", headers=adalo_headers, json={
             'id': req_body['id']
         })
-        return func.HttpResponse(f"Hello, {response, request}. This HTTP triggered function executed successfully.")
+        return func.HttpResponse(f"Hello, {response, request.content}. This HTTP triggered function executed successfully.")
         # else:
         #     return func.HttpResponse(f"User with this email already exists")
 
