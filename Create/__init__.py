@@ -3,7 +3,7 @@ import logging
 import azure.functions as func
 from airtable import Airtable
 import random
-import bcrypt
+# import bcrypt
 
 import requests
 
@@ -32,7 +32,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         #     airtable.search('Email', req_body['Email'])
         # except requests.HTTPError:
         req_body['id'] = create_id()
-        req_body['salt'], req_body['Password'] = hash_password(req_body['Password'])
+        # req_body['salt'], req_body['Password'] = hash_password(req_body['Password'])
+        req_body['salt'], req_body['Password'] = req_body['Password']
         req_body['actionPoints'] = 0
         response = airtable.insert(req_body)
         records = requests.get(url=all_records_url, headers=adalo_headers)
@@ -53,8 +54,8 @@ def create_id():
             return uid
 
 
-def hash_password(password):
-    byte_password = password.encode('utf-8')
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(byte_password, salt)
-    return str(salt)[2:-1], str(hashed_password)[2:-1]
+# def hash_password(password):
+#     byte_password = password.encode('utf-8')
+#     salt = bcrypt.gensalt()
+#     hashed_password = bcrypt.hashpw(byte_password, salt)
+#     return str(salt)[2:-1], str(hashed_password)[2:-1]
