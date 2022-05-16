@@ -28,9 +28,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     except ValueError:
         pass
     else:
-        try:
-            airtable.search('Email', req_body['Email'])
-        except requests.HTTPError:
+        if airtable.search('Email', req_body['Email']):
+            return func.HttpResponse(f"User with this email already exists")
+        else:
             req_body['id'] = create_id()
 
             # req_body['salt'], req_body['Password'] = hash_password(req_body['Password'])
@@ -38,12 +38,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             req_body['actionPoints'] = 0
             response = airtable.insert(req_body)
             records = requests.get(url=all_records_url, headers=adalo_headers)
-            request = requests.put(url=f"{update_url}{len(records.json()['records'])+18}", headers=adalo_headers, json={
-                'id': req_body['id']
-            })
-            return func.HttpResponse(f"Hello, {response, request.content}. This HTTP triggered function executed successfully.")
-        else:
-            return func.HttpResponse(f"User with this email already exists")
+            request = requests.put(url=f"{update_url}{len(records.json()['records']) + 16}", headers=adalo_headers,
+                                   json={
+                                       'id': req_body['id']
+                                   })
+            return func.HttpResponse(
+                f"Hello, {response, request.content}. This HTTP triggered function executed successfully.")
 
 
 def create_id():
