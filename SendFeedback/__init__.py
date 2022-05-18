@@ -19,7 +19,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     except ValueError:
         pass
     else:
-        content = Content('text/html', req_body['Написать нам'])
+        content = Content('text/html', req_body['Feedback'])
         mail = Mail(from_email, To(to_email), subject, content)
         mail_json = mail.get()
         response = sg.client.mail.send.post(request_body=mail_json)
