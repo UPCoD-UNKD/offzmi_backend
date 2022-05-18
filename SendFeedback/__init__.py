@@ -6,8 +6,8 @@ from sendgrid.helpers.mail import Mail, Email, To, Content
 
 
 sg = SendGridAPIClient("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")
-from_email = Email("d.debrin@unkd.com.ua")
-to_email = "d.debrin@unkd.com.ua"
+from_email = Email("admin@offzmi.com")
+to_email = "admin@offzmi.com"
 subject = "Feedback від користувача!"
 
 
