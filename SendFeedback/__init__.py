@@ -5,7 +5,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content
 
 
-sg = SendGridAPIClient("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")
+sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
 from_email = Email("admin@offzmi.com")
 to_email = "admin@offzmi.com"
 subject = "Feedback від користувача!"
