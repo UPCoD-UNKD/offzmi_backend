@@ -35,7 +35,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             req_body['actionPoints'] = 0
             response = airtable.insert(req_body)
             records = requests.get(url=all_records_url, headers=adalo_headers)
-            request = requests.put(url=f"{update_url}{len(records.json()['records']) + 16}", headers=adalo_headers,
+            request = requests.put(url=f"{update_url}{len(records.json()['records']) + 17}", headers=adalo_headers,
                                    json={
                                        'id': req_body['id']
                                    })
