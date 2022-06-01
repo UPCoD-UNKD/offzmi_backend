@@ -16,12 +16,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
-        r = requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', content=req_body)
+        requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', content=req_body)
     except ValueError:
         pass
     else:
         if 'contactForm_email' in req_body:
-            to_email = req_body['contactForm_email']['value']
+            to_email = req_body['fields']['contactForm_email']['value']
 
             invitation_letter = """
                 Вітаємо!\n
