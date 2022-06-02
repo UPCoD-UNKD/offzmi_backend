@@ -22,7 +22,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     except ValueError:
         pass
     else:
-        if 'contactForm_email' in req_body:
+        if 'contactForm_email' in req_body['fields']:
             to_email = req_body['fields']['contactForm_email']['value']
 
             invitation_letter = """
