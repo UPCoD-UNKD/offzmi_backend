@@ -16,7 +16,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
-        requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', content=req_body)
+        requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', body=req_body)
     except ValueError:
         pass
     else:
@@ -39,7 +39,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 Нам важливо, що Ви з нами.
             """
             content = Content('text/html', invitation_letter)
-            subject = ''
+            subject = 'Запрошення до OffЗМІ'
         else:
             to_email = from_email
             subject = "Feedback від користувача!"
