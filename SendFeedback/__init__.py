@@ -19,8 +19,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         req_body = req.get_json()
         print(req_body)
         requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', data=req_body)
-    # except ValueError:
-    #     pass
+    except ValueError:
+        pass
     # else:
     #     if 'contactForm_email' in req_body['fields']:
     #         to_email = req_body['fields']['contactForm_email']['value']
