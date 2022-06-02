@@ -40,7 +40,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 \n
                 Нам важливо, що Ви з нами.
             """
-            content = Content('text/html', invitation_letter)
+            content = Content('text/plain', invitation_letter)
             subject = 'Запрошення до OffЗМІ'
         else:
             to_email = from_email
@@ -50,4 +50,5 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         mail = Mail(from_email, To(to_email), subject, content)
         mail_json = mail.get()
         response = sg.client.mail.send.post(request_body=mail_json)
-        return func.HttpResponse(f'{response.status_code}, {response.headers}')
+        return func.HttpResponse(f'{str(response.status_code)}, {str(response.headers)}')
+
