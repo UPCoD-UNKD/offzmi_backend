@@ -17,13 +17,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         pass
     else:
         records = requests.get(url=all_records_url, headers=adalo_headers)
-
-        for i in records['records']:
-            if i['Invite ID'] == req_body['id']:
-                r = requests.put(url=f"{update_url}{i['Element Id']}", headers=adalo_headers,
-                                        json={
-                                            'Action points': i['Action points'] + 1
-                                        })
-                return func.HttpResponse(r.content)
-            else:
-                return func.HttpResponse('Your invite id is not valid')
+        for i, obj in enumerate(records.json()['records']):
+            if str(obj['id']) == req_body['id']:
+                r = requests.put(
+                                    url=f"{update_url}{obj['Element Id']}", headers=adalo_headers,
+                                    json={'Action points': obj['Action points'] + 1}
+                                )
+                return func.HttpResponse(str(r.content))
+        return func.HttpResponse('Your invite id in not valid')

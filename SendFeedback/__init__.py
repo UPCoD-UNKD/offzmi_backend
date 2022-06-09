@@ -7,7 +7,7 @@ from sendgrid.helpers.mail import Mail, Email, To, Content
 import requests
 
 
-sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
+# sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
 from_email = Email("admin@offzmi.com")
 
 
