@@ -28,11 +28,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             invitation_letter = """
                 Вітаємо!\n
                 \n
-                \n
                 Це Ваші персональні посилання для завантаження додатку:\n
                 https://play.google.com/store/apps/details?id=com.unkd.offzmi\n
                 https://apps.apple.com/us/app/off-zmi/id1626418738\n
-                \n
+                
                 Будь ласка, перейдіть за посиланням відповідно до Вашої платформи, завантажте додаток та зареєструйтесь.\n
                 Ви можете розпочати публікацію новин одразу після авторизації.\n
                 \n
