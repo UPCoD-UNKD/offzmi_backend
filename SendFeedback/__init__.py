@@ -18,7 +18,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
         req_body = req.get_json()
         logging.info(str(req_body))
-        requests.post(url='https://eofbyoqrpojsf2.m.pipedream.net', data=req_body)
+        requests.post(url='https://hooks.zapier.com/hooks/catch/12437001/baquxp0/', data=req_body)
     except ValueError:
         pass
     else:
