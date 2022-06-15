@@ -7,7 +7,7 @@ from sendgrid.helpers.mail import Mail, Email, To, Content
 import requests
 
 
-# sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
+sg = SendGridAPIClient(os.environ["SENDGRID_API_KEY"])
 from_email = Email("admin@offzmi.com")
 
 
@@ -18,7 +18,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
         req_body = req.get_json()
         logging.info(str(req_body))
-        requests.post(url='https://hooks.zapier.com/hooks/catch/12437001/baquxp0/', data=req_body)
+        requests.post(url='https://hooks.zapier.com/hooks/catch/12437001/baquxp0/', data=req_body['fields']['contactForm_email'])
     except ValueError:
         pass
     else:
